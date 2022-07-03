@@ -1,2 +1,3 @@
 # ba-linux-unix
- HSMW BA Bash Course
+
+BA Bash Course from the University of Applied Science Mittweida that took place in 2017.
