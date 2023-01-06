@@ -6,10 +6,10 @@ if [ "$#" -ge "1" ]; then
 		# Check if file exists
 		if [ -f "$2" ]; then
 			# Display of phone book entries
-			max=`wc -l $2 | tr -d '[:upper:][:lower:][:cntrl:]. '`
+			max=`wc -l $2 | tr -d '[:upper:][:lower:][:cntrl:]._ '`
 			i=1
 			while [ "$i" -le "$max" ]; do
-				echo `more -1 +$i $2 | tr ',' ' ' | tr ':' '\t' | head -1`
+				echo `sed $i'q;d' $2 | tr ',' ' ' | tr ':' ' '`
 				let "i = i + 1"
 			done
 			exit 0
@@ -21,7 +21,7 @@ if [ "$#" -ge "1" ]; then
 		# Are enough parameters specified?
 		if [ $# -ge 3 ]; then
 			if [ -f "$3" ]; then
-				ausgabe=`grep '.*$2.*' $3`
+				ausgabe=`grep '.*'$2'*.' $3`
 				if [ "$ausgabe" = "" ]; then
 					echo "Es konnte nichts gefunden werden!"
 					exit 2
@@ -43,11 +43,11 @@ if [ "$#" -ge "1" ]; then
 			# File readable?
 			if [ -f "$3" ]; then
 				# Check single characters of the file if entry already exists
-				max=`wc -l $3 | tr -d '[:upper:][:lower:][:cntrl:]. '`
+				max=`wc -l $3 | tr -d '[:upper:][:lower:][:cntrl:]._ '`
 				i=1
 				abbruch=0
 				while [ "$i" -le "$max" ]; do
-					zeile=`more -1 +$i $3 | tr ',' ' ' | tr ':' '\t' | head -1`
+					zeile=`sed $i'q;d' $2 | tr ',' ' ' | tr ':' ' '`
 					if [ "$zeile" = "$2" ]; then
 						echo "Dieser Eintrag existiert bereits! Abbruch!"
 						abbruch=1
@@ -74,20 +74,19 @@ if [ "$#" -ge "1" ]; then
 			if [ -f "$3" ]; then
 				# Read in the lines in a loop and check for the same deletion name
 				i=1
-				max=`wc -l $3 | tr -d '[:upper:][:lower:][:cntrl:]. '`
+				max=`wc -l $3 | tr -d '[:upper:][:lower:][:cntrl:]._ '`
 				`touch ./tel.tmp`
 				while [ "$i" -le "$max" ]; do
-					teststr=`more -1 +$i $3 | head -1 | grep ".*$2.*"`
-					# echo $teststr
+					teststr=`sed $i'q;d' $3 | grep '.*'$2'*.'`
 					if [ "$teststr" = "" ]; then
 						# Write line to second file
-						echo `more -1 +$i $3 | head -1 ` >> "tel.tmp"
+						echo `sed $i'q;d' $3` >> "tel.tmp"
 					else
 							echo "Das angegebene Muster passt auf: $teststr"
 							echo "Soll der Nutzer verworfen werden? [j/n]"
 							read abfrage
 							if [ "$abfrage" = "n" ]; then
-								echo `more -1 +$i $3 | head -1 ` >> "tel.tmp"
+								echo `sed $i'q;d' $3` >> "tel.tmp"
 							else
 								echo "Der Nutzer $teststr wird nicht mehr gespeichert!"
 							fi
