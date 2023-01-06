@@ -43,7 +43,7 @@ The course focused on operating systems and their history, especially UNIX. The 
    - File Comparison
    - Sorting
    - Transformation
-5.
+5. Table Evaluations
 6.
 7.
 8.
