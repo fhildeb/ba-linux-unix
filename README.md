@@ -49,6 +49,6 @@ The course focused on operating systems and their history, especially UNIX. The 
 6. System Processes
 7. Parameter Handling
 8. System Data Usage
-9.
+9. Puzzle Game
 10.
 11.

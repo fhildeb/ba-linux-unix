@@ -2,23 +2,23 @@
 ergebnis=0
 
 function istZahl() {
-# Alle Zahlen entfernen
+# Remove all numbers
 text=$(echo "$gerateneZahl" | sed 's/[0-9]//g';)
 if [ "$text" ]; then
-	# Text vorhanden  falsch
+	# Text present- incorrect
 	ergebnis=0
 else
-	# Kein Text vorhanden korrekt
+	# No text present- correct
 	ergebnis=1
 fi
 }
 
-# Zufallszahl zwischen 0..99 erzeugen
+# Generate random number between 0..99
 let "zufall= $RANDOM % 100"
 # echo $zufall
 echo "Ich habe eine Zufallszahl! Du darfst raten..."
 versuche=0
-# Nur 10 Versuche
+# Only 10 attempts
 while [ $versuche -lt 10 ]; do
 	# Inc($versuche)	
 	let "versuche = $versuche + 1"	
@@ -26,7 +26,7 @@ while [ $versuche -lt 10 ]; do
 	read gerateneZahl
 	istZahl
 	if [ "$ergebnis" -eq 1 ]; then	
-		# Faelle prüfen
+		# Check cases
 		if [ $gerateneZahl -lt $zufall ]; then
 			echo "Die Zahl $gerateneZahl  ist zu klein!"
 		fi
@@ -37,7 +37,7 @@ while [ $versuche -lt 10 ]; do
 
 		if [ $gerateneZahl -eq $zufall ]; then
 			echo "Glueckwunsch! Zahl gefunden nach $versuche Versuchen!"
-			# Versuche auf 11 setzen, um von Versagen zu unterscheiden		
+			# Set attempts to 11 to distinguish from failure			
 			versuche=11
 		fi
 
