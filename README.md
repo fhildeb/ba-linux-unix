@@ -28,7 +28,10 @@ The course focused on operating systems and their history, especially UNIX. The 
 
 ## Content
 
-1.
+1. General Commands
+   - Calendar functions
+   - Operating System and User Calls
+   - Directories and files
 2.
 3.
 4.
