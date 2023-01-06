@@ -1,4 +1,4 @@
-# treegrep: grep-Kommando fuer alle Dateien eines ganzen Directorybaumes
+# treegrep: grep command for all files of a whole directory tree
 # Quelle: Herold, H.: UNIX-Shells, Addison-Wesley, 1992
 echo "usage: treegrep '[grep-options] suchausdruck' 'datei(en)' [directory]"
 echo "Ohne Angabe eines Directorys wird das akt. Verzeichnis verwendet!"

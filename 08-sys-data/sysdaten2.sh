@@ -3,10 +3,10 @@ echo 'SYSTEMDATEN:*****'
 parameter=$1
 echo $parameter
 if [ $# -lt 2 ]; then
-	# Wochentag und Datum ausgeben
+	# Output weekday and date
 	echo "Heute ist `date +%A`, der `date +%d`. `date +%B` `date +%Y`"
 
-	# Unterscheidung, ob Parameter -L gesetzt 
+	# Differentiation whether parameter -L is set 
 	if [ "$parameter" = -L ]; then
 		echo "Mein aktuelles Verzeichnis ist \"`pwd`\""
 		echo "Angemeldet bin ich als \"`whoami`\" am Host \"$HOSTNAME\", der Terminaltyp ist \"$TERM\"."

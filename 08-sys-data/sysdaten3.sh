@@ -5,10 +5,10 @@ while [ "$eingabe" == "j" ]; do
 	echo 'SYSTEMDATEN:*****'
 	echo $parameter
 	if [ $# -lt 2 ]; then
-		# Wochentag und Datum ausgeben
+		# Output weekday and date
 	echo "Heute ist `date +%A`, der `date +%d`. `date +%B` `date +%Y`"
 
-		# Unterscheidung, ob Parameter -L gesetzt 
+		# Differentiation whether parameter -L is set  
 		if [ "$parameter" == -L ]; then
 			echo "Mein aktuelles Verzeichnis ist \"`pwd`\""
 			echo "Angemeldet bin ich als \"`whoami`\" am Host \"$HOSTNAME\", der Terminaltyp ist \"$TERM\"."
@@ -23,13 +23,13 @@ while [ "$eingabe" == "j" ]; do
 	else
 	echo "Zu viele Parameter angegeben!"
 	fi
-	# Parameter des Datums löschen
+	# Delete parameters of the date
 	while [ $# -gt 0 ]; do
 	shift
 	done
-	# Eingabevariable neu initialisieren
+	# Reinitialize input variable
 	eingabe=n
-	# Abfrage starten
+	# Restart program?
 	echo "Möchten Sie das Programm wiederholen? [j/n]"
 	read eingabe
 done
