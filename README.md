@@ -39,7 +39,10 @@ The course focused on operating systems and their history, especially UNIX. The 
    - Hardlinks and Redirections
    - File Search and Rights
 3. VI Editor
-4.
+4. Transformation of File Contents
+   - File Comparison
+   - Sorting
+   - Transformation
 5.
 6.
 7.

@@ -1,4 +1,3 @@
-# Transform text or input
 # sort                              sort alphabetically
 # sort -k 2,4                       sort field 2 to 3
 # sort -k 2,2                       sort in field 2
