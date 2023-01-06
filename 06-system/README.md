@@ -6,4 +6,4 @@ Cheatcheats for shell terminal commands about:
 
 - Creating aliases in `aliases.sh`
 - Process evaluationin `process.sh`
-- Sleep loopes in `schlafen.sh`
+- Sleep loopes in `sleep.sh`

@@ -45,7 +45,7 @@ The course focused on operating systems and their history, especially UNIX. The 
    - Transformation
 5. Table Evaluations
 6. System Processes
-7.
+7. Parameter Handling
 8.
 9.
 10.
