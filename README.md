@@ -51,5 +51,5 @@ The course focused on operating systems and their history, especially UNIX. The 
 8. System Data Usage
 9. Puzzle Game
 10. Diagram Generation
-11. Randomized Data Report
-12. Data Analysis
+11. Randomized Weather Report
+12. Phonebook Data Analysis
