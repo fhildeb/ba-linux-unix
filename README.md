@@ -36,19 +36,20 @@ The course focused on operating systems and their history, especially UNIX. The 
    - Calendar Functionality
    - Operating System and User Calls
    - Directories and Files
-2. File System
+2. File System Commands
    - File Injections and Pipes
    - Hardlinks and Redirections
    - File Search and Rights
-3. VI Editor
+3. VI Editor Handling
 4. Transformation of File Contents
    - File Comparison
-   - Sorting
+   - Sorting Rows and Columns
    - Transformation
 5. Table Evaluations
 6. System Processes
 7. Parameter Handling
 8. System Data Usage
 9. Puzzle Game
-10.
-11.
+10. Diagram Generation
+11. Randomized Data Report
+12.
