@@ -38,7 +38,7 @@ The course focused on operating systems and their history, especially UNIX. The 
    - File Injections and Pipes
    - Hardlinks and Redirections
    - File Search and Rights
-3.
+3. VI Editor
 4.
 5.
 6.

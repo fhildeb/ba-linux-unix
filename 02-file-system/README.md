@@ -1,4 +1,4 @@
-# Practical Session 1: Commands
+# Practical Session 2: File System
 
 ## Features
 
