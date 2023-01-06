@@ -1,27 +1,30 @@
 #!/bin/bash
-# Wurde ein Parameter übergeben?
+# Was a parameter passed?
 if [ "$#" -gt 0 ]; then
-	# Ist der übergebene Parameter ein Verzeichnis?	
+
+	# Is the parameter passed a directory?	
 	if [ -d "$1" ]; then
 		
-		# In übergebenes Verzeichnis springen
+		# Jump to passed directory
 		cd $1
 		
-		# Anzahl der Dateien zählen
+		# Count number of files
 		nmax=`ls | wc -w`
 		
-		# Größe mittels Befehl "du -b" bestimmen 
+		# Determine size using "du -b" command 
 		echo "Das Verzeichnis $1 bzw `pwd` hat eine Größe von `du -b | tail -1 | cut -f1` Bytes."
 		echo "Es sind $nmax Dateien/Verzeichnisse enthalten."
 		verzliste=`ls`
 		echo ""
 		echo $verzliste
 		echo ""
-		# Dateien in Array aufsplitten
+
+		# Split files into array
 		verzarray=($verzliste);
 		i=0
 		while [ "$i" -lt "${#verzarray[*]}" ]; do 
-			# Dateinamen und Groesse angeben
+
+			# Specify file name and size
 			if [ "$#" -le "2" ]; then 
 				if [ "$2" = "-r" ]; then
 					if [ -d "${verzarray[$i]}" ]; then
