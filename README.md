@@ -28,11 +28,16 @@ The course focused on operating systems and their history, especially UNIX. The 
 
 ## Content
 
+> Practical Sessions with shell terminal commands and programs written in bash.
+
 1. General Commands
-   - Calendar functions
+   - Calendar Functionality
    - Operating System and User Calls
-   - Directories and files
-2.
+   - Directories and Files
+2. File System
+   - File Injections and Pipes
+   - Hardlinks and Redirections
+   - File Search and Rights
 3.
 4.
 5.
