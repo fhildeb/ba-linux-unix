@@ -1,9 +1,9 @@
 #!/bin/bash
 if [ "$1" = "-L" ]; then
-	# Ausfuehrliche Wettervorhersage
+	# Detailed weather forecast
 	if [ $# -gt "1" ]; then
 		if [ -f "$2" ]; then
-			# Zufallsvariablen füllen
+			# Fill random variables
 			zufall1=0
 			zufall2=0
 			zufall3=0
@@ -33,7 +33,7 @@ if [ "$1" = "-L" ]; then
 		echo "Leider habe ich keine Datenquelle für meine Wettervorhersage!"
 	fi
 else
-	# Einfache Wettervorhersage
+	# Simple weather forecast
 	if [ -f "$1" ]; then	
 		zufall1=0
 		zufall2=0	
