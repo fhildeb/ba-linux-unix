@@ -2,8 +2,6 @@
 
 BA Bash Course from the University of Applied Science Mittweida that took place in 2017.
 
-> Program outputs might appear in German
-
 ## Course Contents
 
 The course focused on operating systems and their history, especially UNIX. The focal points included operating systems' classifications, properties, and UNIX models.

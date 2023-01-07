@@ -3,7 +3,7 @@ if [ $# -eq 1 ]; then
 		`date >> "lastlog"`
 		echo `tail -1 lastlog`
 	else
-		echo "Leider die unpassenden Argumente!"
+		echo "Unfortunately, the inappropriate arguments!"
 	fi
 elif [ $# -eq 0 ]; then
 	if [ -e "lastlog" ]; then
@@ -13,6 +13,6 @@ elif [ $# -eq 0 ]; then
 		`date >> "lastlog"`
 	fi
 else
-	echo "Leider die unpassenden Argumente!"
+	echo "Unfortunately, the inappropriate arguments!"
 fi
 exit 0
