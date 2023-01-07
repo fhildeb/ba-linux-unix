@@ -9,15 +9,14 @@ if [ "$#" -gt 0 ]; then
 		cd $1
 		
 		# Count number of files
-		nmax=`ls | wc -w`
+		nmax=`ls | wc -w | awk '{$1=$1};1' `
 		
 		# Determine size using "du -b" command 
-		echo "Das Verzeichnis $1 bzw `pwd` hat eine Größe von `du -b | tail -1 | cut -f1` Bytes."
-		echo "Es sind $nmax Dateien/Verzeichnisse enthalten."
+		echo -e ""
+		echo "The directory $1 has a size of `du | tail -1 | cut -f1` bytes."
+		echo "There are $nmax files/directories included."
+		echo -e ""
 		verzliste=`ls`
-		echo ""
-		echo $verzliste
-		echo ""
 
 		# Split files into array
 		verzarray=($verzliste);
@@ -32,11 +31,12 @@ if [ "$#" -gt 0 ]; then
 					fi
 				fi
 			fi
-			echo "${verzarray[$i]} `du -b ${verzarray[$i]} | tail -1 | cut -f1 ` Bytes"
+			echo "${verzarray[$i]} `du ${verzarray[$i]} | tail -1 | cut -f1 ` bytes."
 			let "i = i + 1";
 		done
+		echo -e ""
 	fi
 else
-	echo "Bitte geben Sie ein Verzeichnis an, das analysiert werden soll!"
+	echo "Please specify a directory to be analyzed!"
 fi
 		

@@ -5,6 +5,22 @@
 - `dat_size.sh`: Program to determine files, its sizes and the directory properties from a path given by the user.
 - `phone.sh`: Phonebook program that shows all entries from the phonebook file and can search, add and add contacts from the list. The application also has custom error messages for parameters and list entries.
 
+## Data Size
+
+```bash
+bash dat_size.sh /Users/fhildeb/develop/test-folder
+```
+
+```bash
+The directory /Users/fhildeb/develop/test-folder has a size of 2728 bytes.
+There are 4 files/directories included.
+
+file1.png 952 bytes.
+file2.png 248 bytes.
+new-folder 1336 bytes.
+test.png 176 bytes.
+```
+
 ## Phonelist
 
 ### Read Entries
