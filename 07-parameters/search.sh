@@ -1,6 +1,6 @@
 if [ $# -lt 2 ]
-then echo "zu wenige Parameter!"
-    echo "usage: bash search.sh 'grep-options' 'file' directory"
+then echo "Too few parameters!"
+    echo "Usage: bash search.sh 'grep-options' 'file' directory"
     echo "Without specification of a directory the current directory is used!"
     exit 1
 fi
