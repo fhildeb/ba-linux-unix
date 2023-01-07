@@ -1,5 +1,5 @@
 #!/bin/bash
-cat $* |
+ps |
 tr [A-Z] [a-z] |
 tr -sc "[A-Z][a-z]" "[\n*]" |
 sort |

@@ -1,14 +1,13 @@
-# treegrep: grep command for all files of a whole directory tree
-# Quelle: Herold, H.: UNIX-Shells, Addison-Wesley, 1992
-echo "usage: treegrep '[grep-options] suchausdruck' 'datei(en)' [directory]"
-echo "Ohne Angabe eines Directorys wird das akt. Verzeichnis verwendet!"
 if [ $# -lt 2 ]
 then echo "zu wenige Parameter!"
-exit 1
+    echo "usage: bash search.sh 'grep-options' 'file' directory"
+    echo "Without specification of a directory the current directory is used!"
+    exit 1
 fi
 regulaerer_ausdruck=$1
 dir=${3:-`pwd`}
+echo $dir
 for name in `find $dir -type d -print`
-do grep $regulaerer_ausdruck $name/$2
+    do grep $regulaerer_ausdruck $name/$2
 done
-echo "treegrep beendet"
+echo "Search ended"

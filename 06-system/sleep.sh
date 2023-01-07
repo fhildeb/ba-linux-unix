@@ -1,3 +1,3 @@
-echo "Gonna sleep now"
-sleep 20
+echo "Gonna sleep for 5 seconds now"
+sleep 5
 echo "I'm awake again!"
