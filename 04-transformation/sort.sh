@@ -5,7 +5,10 @@
 # sort -k 3,3 -n                    sort numerically in field 3
 # sort -k 3,3 -m -u                 sort numerbically in field 3 and delete duplicate entries
 
-`ls -al | sort -k 5 -n`             # Pipe to sort field 5 numerically ascending
+echo "Pipe to sort field 5 numerically ascending:"
+echo -e ""
+ls -al | sort -k 5 -n             # Pipe to sort field 5 numerically ascending
+
 # sort -t:                          Colon will be seen as separator for calumns
 # sort -t" "                        Space will be seen as separator for calumns
 

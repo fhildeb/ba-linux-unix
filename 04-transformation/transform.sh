@@ -14,7 +14,10 @@
 # cut -f2,3 file > file2            Output redirection
 
 # grep term file                    Search for term in file
-`ps -elf | grep whoami`             # Example search for user tasks             
+
+# Example search for user tasks             
+echo "User Tasks:"
+ps -elf | grep whoami | tr '-' '\n' | awk '{$1=$1};1' 
 
 # Special character strings
 # .                                 any character
@@ -30,9 +33,9 @@
 # ^RA                               only if RA appears at the start of the line
 # RA$                               only if RA appears at the end of the line
 
-# d on start of line followed by 8 arbitrary chars, ending with x 
-`ls -al | grep '^d........x'`
+# File searchwith s at start of line followed by 2 arbitrary chars, ending with t 
+# ls -al | grep '^s..t'
 
 # Simplyfied
-`ls -al | grep '^d.\{8\}x'`
+# ls -al | grep '^d.\{8\}x'
 
