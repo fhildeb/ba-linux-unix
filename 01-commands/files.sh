@@ -1,7 +1,17 @@
-echo "Create file new_text"                              `touch new_text`
-echo "Write pwd in new_text"                             `pwd > new_text`
-echo "Add name into new_text"                            `whoami >> new_text`
-echo "Add text into new_text"                            `echo custom text >> new_text`
+echo "Created file new_text"                              
+touch new_text
+echo "Wrote pwd in new_text"                             
+pwd > new_text
+echo "Added name into new_text"                            
+whoami >> new_text
+echo "Added custom text into new_text"                            
+echo custom text >> new_text
+echo -e ""
+echo "Show new_text:"
+echo "$(cat new_text)"
+echo -e ""
+echo "new_text was removed"
+rm new_text
 
 
 # Write into file

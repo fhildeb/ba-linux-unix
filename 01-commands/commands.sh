@@ -1,6 +1,15 @@
 
-echo "My login name: "              `whoami`
-echo "All logged-in users: "        `who`
-echo "User and group ID's: "        `id`
-echo "Current path: "               `pwd`
-echo "Home Directory: "             $HOME
+echo "My login name: "  
+whoami
+echo -e ""
+echo "All logged-in users: "        
+who
+echo -e ""
+echo "User and group ID's: "        
+id | tr ',' '\n'
+echo -e ""
+echo "Current path: "               
+pwd
+echo -e ""
+echo "Home Directory: "             
+echo "$HOME"
