@@ -71,7 +71,7 @@ Would you like to repeat the program? [y/n]
 ### Long Version
 
 ```bash
-bash sysdata_2.sh -L
+bash sysdata_3.sh -L
 ```
 
 ```bash
