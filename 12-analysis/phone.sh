@@ -140,8 +140,8 @@ else
 	echo "bash phone.sh"
 	echo "-p [filename] ... Displays all entries from the phonebook file."
 	echo "-s [searchword] [filename] ... Searches the file for this contact."
-	echo "-e [name, surname:number] [filename] .. Adds new contact to the phone list."
-	echo "-d [searchword] [filename] ... Deletes contact from the phone list."
+	echo "-e [name, surname:number] [filename] .. Adds new contact to the phonebook."
+	echo "-d [searchword] [filename] ... Deletes contact from the phonebook."
 	echo -e ""
 	exit 1
 fi

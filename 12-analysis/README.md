@@ -21,7 +21,7 @@ new-folder 1336 bytes.
 test.png 176 bytes.
 ```
 
-## Phonelist
+## Phonebook
 
 ### Read Entries
 
