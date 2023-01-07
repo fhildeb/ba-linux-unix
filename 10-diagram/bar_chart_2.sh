@@ -1,18 +1,16 @@
 #!/bin/bash
-echo "Balkendiagramm"
-echo ""
-echo "Bitte geben Sie die Werteanzahl für das Diagramm ein: "
+echo "Please enter the number of bars for the diagram:"
 read nWert
 if [ $nWert -gt 0 ] && [ $nWert -lt 6 ]; then
 	i=0
-	echo "Vielen Dank!"
+	echo "Thank you very much!"
 	# Read in values
 	while [ $i -lt $nWert ]; do
 		let "anzeige = i + 1"
-		echo "Bitte geben Sie den Wert $anzeige ein: "
+		echo "Please enter the value for bar $anzeige:"
 		read param[i]
 		if [ ${param[$i]} -lt 0 ] || [ ${param[$i]} -gt 20 ]; then
-			echo "Diese Zahl passt nicht in den Bereich 0-20! Wird mit 0 initialisiert!"
+			echo "This number does not fit into the range 0-20! Will be initialized with 0!"
 			param[$i]=0
 		fi 		
 		let "i = i + 1"
@@ -20,7 +18,9 @@ if [ $nWert -gt 0 ] && [ $nWert -lt 6 ]; then
 	# Show bar chart
 	i=0
 	ausgabe="|"
-	echo ""
+	echo -e ""
+	echo "Your Personalized Bar Chart:"
+	echo -e ""
 	echo "^"
 	while [ $i -lt $nWert ]; do
 		counter=1
@@ -36,5 +36,5 @@ if [ $nWert -gt 0 ] && [ $nWert -lt 6 ]; then
 	done
 	echo "--------------------->"
 else
-	echo "Das sind leider zu viele/wenige Parameter für das Balkendiagramm!"
+	echo "Unfortunately, there are too many or few parameters for the bar chart!"
 fi

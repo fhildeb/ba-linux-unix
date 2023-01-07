@@ -1,13 +1,14 @@
 #!/bin/bash
 # Sufficient parameters?
 if [ $# -lt 1 ]; then
-	echo "Keine Parameter angegeben! 1-5 Parameter zwischen 0-20 sind erlaubt!"
+	echo "No parameters specified! 1-5 parameters between 0-20 are allowed."
 # Too many parameters?
 elif [ $# -gt 5 ]; then
-	echo "Zu viele Parameter angegeben! 1-5 Parameter zwischen 0-20 sind erlaubt!"
+	echo "Too many parameters specified! 1-5 parameters between 0-20 are allowed."
 else
 	# Display bar graph after checking parameters
-	echo "Balkendiagramm"
+	echo "Your Personalized Bar Chart:"
+	echo -e ""
 	echo "^"	
 	# param1=`tr -d 'A-Za-z' $1 `
 	param1=$1
