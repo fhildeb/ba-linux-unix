@@ -14,7 +14,7 @@ bash weather.sh  weather_data.dat
 Tomorrow will be bad weather.
 ```
 
-## Short Weather Report
+## Extended Weather Report
 
 ```bash
 bash weather.sh -L weather_data.dat

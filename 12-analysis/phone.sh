@@ -8,33 +8,46 @@ if [ "$#" -ge "1" ]; then
 			# Display of phone book entries
 			max=`wc -l $2 | tr -d '[:upper:][:lower:][:cntrl:]._ '`
 			i=1
+			echo -e ""
 			while [ "$i" -le "$max" ]; do
 				echo `sed $i'q;d' $2 | tr ',' ' ' | tr ':' ' '`
 				let "i = i + 1"
 			done
+			echo -e ""
 			exit 0
 		else
-			echo "Aus dieser Telefonbuchdatei kann ich nichts lesen!"	
+			echo -e ""
+			echo "I can't read anything from this phone book file!"	
+			echo -e ""
 		fi
 	# Parameter s for search was specified
 	elif [ "$1" = "-s" ]; then
 		# Are enough parameters specified?
 		if [ $# -ge 3 ]; then
 			if [ -f "$3" ]; then
-				ausgabe=`grep '.*'$2'*.' $3`
+				ausgabe=`grep '.*'$2'*.' $3 | tr ',' ' ' | tr ':' ' '`
 				if [ "$ausgabe" = "" ]; then
-					echo "Es konnte nichts gefunden werden!"
+					echo -e ""
+					echo "Nothing could be found!"
+					echo -e ""
 					exit 2
 				else
-					echo "Habe einen passenden Eintrag gefunden: $ausgabe"
+					echo -e ""
+					echo "Matching:" 
+					echo "$ausgabe"
+					echo -e ""
 					exit 0
 				fi
 			else
-				echo "Aus dieser Datei kann ich nichts lesen!"
+				echo -e ""
+				echo "I can't read anything from this phone book file!"
+				echo -e ""
 			fi
 		else
-			echo "Mir fehlen einige Parameter!"
-			echo "bash ./telefon.sh -s [muster] [file]"
+			echo -e ""
+			echo "I am missing some parameters!"
+			echo "bash phone.sh -s [searchword] [file]"
+			echo -e ""
 		fi
 	# Parameter e for enter was specified
 	elif [ "$1" = "-e" ]; then
@@ -47,24 +60,32 @@ if [ "$#" -ge "1" ]; then
 				i=1
 				abbruch=0
 				while [ "$i" -le "$max" ]; do
-					zeile=`sed $i'q;d' $2 | tr ',' ' ' | tr ':' ' '`
-					if [ "$zeile" = "$2" ]; then
-						echo "Dieser Eintrag existiert bereits! Abbruch!"
+					zeile=`sed -n $i'p' $3`
+					if [ "$zeile" == "$2" ]; then
+						echo -e ""
+						echo "This entry already exists! Abort!"
+						echo -e ""
 						abbruch=1
 					fi
 					let "i = i + 1"
 				done
 				if [ $abbruch -lt "1" ]; then
 					echo $2 >> $3
-					echo "Bin fertig!"
+					echo -e ""
+					echo "Done!"
+					echo -e ""
 					exit 0
 				fi
 			else
-				echo "Aus der genannten Datei kann ich nichts lesen!"
+				echo -e ""
+				echo "I can't read anything from this phone book file!"
+				echo -e ""
 			fi
 		else
-			echo "Ich habe nicht genügend Parameter!"
-			echo "bash ./telefon.sh -e [name] [file]"
+			echo -e ""
+			echo "I do not have enough parameters!"
+			echo "bash phone.sh -e [name, surname: number] [file]"
+			echo -e ""
 		fi	
 	# Parameter d for delete was specified
 	elif [ "$1" = "-d" ]; then
@@ -77,18 +98,23 @@ if [ "$#" -ge "1" ]; then
 				max=`wc -l $3 | tr -d '[:upper:][:lower:][:cntrl:]._ '`
 				`touch ./tel.tmp`
 				while [ "$i" -le "$max" ]; do
-					teststr=`sed $i'q;d' $3 | grep '.*'$2'*.'`
+					teststr=`sed $i'q;d' $3 | grep '.*'$2'*.' | tr ',' ' ' | tr ':' ' '`
 					if [ "$teststr" = "" ]; then
 						# Write line to second file
 						echo `sed $i'q;d' $3` >> "tel.tmp"
 					else
-							echo "Das angegebene Muster passt auf: $teststr"
-							echo "Soll der Nutzer verworfen werden? [j/n]"
+							echo -e ""
+							echo "The specified name or number matches:"
+							echo "$teststr"
+							echo "Should the user be discarded? [y/n]"
 							read abfrage
 							if [ "$abfrage" = "n" ]; then
 								echo `sed $i'q;d' $3` >> "tel.tmp"
+								echo -e ""
 							else
-								echo "Der Nutzer $teststr wird nicht mehr gespeichert!"
+								echo -e ""
+								echo "The user $teststr is no longer stored!"
+								echo -e ""
 							fi
 					fi
 					let " i = i + 1"
@@ -96,19 +122,26 @@ if [ "$#" -ge "1" ]; then
 				# Move file to original path of phonebook
 				`mv ./tel.tmp $3`
 			else
-				echo "Aus der Datei kann ich nichts lesen!"
+				echo -e ""
+				echo "I can't read anything from the file!"
+				echo -e ""
 			fi
 		else
-			echo "Ich brauche mehr Parameter!"
-			echo "bash ./telefon.sh -d [name] [file]"
+			echo -e ""
+			echo "I need more parameters!"
+			echo "bash phone.sh -d [name] [file]"
+			echo -e ""
 		fi
 	fi
 else
-	echo "Ich brauche eine Option und einen Dateinamen für die Telefonbuchdatei!"
-	echo "bash ./telephone.sh"
-	echo "-p [dateiname] .. Zeigt alle Einträge aus der Telefonbuchdatei an."
-	echo "-s [muster] [dateiname] .. Sucht in der Datei nac diesem Kontakt."
-	echo "-e [neuer,Kontakt:Nr] [dateiname] .. Fügt neuen Kontakt in die Telefonliste ein."
-	echo "-d [muster] [dateiname] .. Löscht Kontakt aus der Telefonliste."
+	echo -e ""
+	echo "I need an option and a filename for the phonebook file!"
+	echo -e ""
+	echo "bash phone.sh"
+	echo "-p [filename] ... Displays all entries from the phonebook file."
+	echo "-s [searchword] [filename] ... Searches the file for this contact."
+	echo "-e [name, surname:number] [filename] .. Adds new contact to the phone list."
+	echo "-d [searchword] [filename] ... Deletes contact from the phone list."
+	echo -e ""
 	exit 1
 fi
