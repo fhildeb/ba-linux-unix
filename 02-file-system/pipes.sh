@@ -1,4 +1,8 @@
-# show folder contents in reverse
-`ls | sort -r`
-# Print folder contents in reverse into ls-file
-`ls | sort -r > ls-file`
+echo "Folder contents in reverse:"
+ls | sort -r
+echo -e ""
+echo "Printed contents to ls-file"
+ls | sort -r > ls-file
+echo -e ""
+echo "Removed ls-file"
+rm ls-file
