@@ -17,20 +17,22 @@ if [ "$1" = "-L" ]; then
 			let "zufall5 = $RANDOM % 6 + 1"
 			let "zufall6 = $RANDOM % 4 + 1"
 			
-			tag=`cat $2 | head -1 | cut -f$zufall1`
-			art=`more -1 +2 $2 | cut -f$zufall2 | head -1`
-			temp=`more -1 +3 $2 | cut -f$zufall3 | head -1`
-			regen=`more -1 +4 $2 | cut -f$zufall4 | head -1`
-			wind=`more -1 +5 $2 | cut -f$zufall5 | head -1`
-			sonne=`more -1 +6 $2 | cut -f$zufall6 | head -1`
+			tag=`sed -n '1p' $2 | cut -f$zufall1`
+			art=`sed -n '2p' $2 | cut -f$zufall2`
+			temp=`sed -n '3p' $2 | cut -f$zufall3`
+			regen=`sed -n '4p' $2 | cut -f$zufall4`
+			wind=`sed -n '5p' $2 | cut -f$zufall5`
+			sonne=`sed -n '6p' $2 | cut -f$zufall6`
 			
-			ausgabe="$tag wird $art Wetter mit ca. $temp Grad Celsius, $regen Regen, $wind Wind und $sonne Sonne."
+			ausgabe="$tag will be $art weather with about $temp degrees celsius, $regen rain, $wind wind and $sonne sun."
+			echo -e ""
 			echo $ausgabe
+			echo -e ""
 		else
-			echo "Aus dieser Quelle kann ich leider nichts lesen: $2"
+			echo "Unfortunately, I cannot read anything from this source: $2"
 		fi	
 	else
-		echo "Leider habe ich keine Datenquelle für meine Wettervorhersage!"
+		echo "Unfortunately, I don't have a data source for my weather forecast!"
 	fi
 else
 	# Simple weather forecast
@@ -39,11 +41,13 @@ else
 		zufall2=0	
 		let "zufall1 = $RANDOM % 4 + 1"
 		let "zufall2 = $RANDOM % 2 + 1"
-		tag=`cat $1 | head -1 | cut -f$zufall1`
-		art=`more -1 +2 $1 | cut -f$zufall2 | head -1`
-		ausgabe="$tag wird $art Wetter!"
+		tag=`sed -n '1p' $1 | cut -f$zufall1`
+		art=`sed -n '2p' $1 | cut -f$zufall2`
+		ausgabe="$tag will be $art weather."
+		echo -e ""
 		echo "$ausgabe"
+		echo -e ""
 	else
-		echo "Leider kann ich nicht aus der Datei lesen! Bitte eine andere Datei für mich!"
+		echo "Unfortunately, I can not read from this source: $1"
 	fi
 fi
