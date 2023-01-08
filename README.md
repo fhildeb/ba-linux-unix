@@ -28,8 +28,6 @@ The course focused on operating systems and their history, especially UNIX. The 
 
 ## Repository Content
 
-> Practical Sessions with shell terminal commands and programs written in bash.
-
 1. General UNIX Commands
    - Calendar Functionality
    - Operating System and User Calls
