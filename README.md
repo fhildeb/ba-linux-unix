@@ -2,7 +2,7 @@
 
 BA Bash Course from the University of Applied Science Mittweida that took place in 2017.
 
-## Course Contents
+## Course Content
 
 The course focused on operating systems and their history, especially UNIX. The focal points included operating systems' classifications, properties, and UNIX models.
 
@@ -26,11 +26,11 @@ The course focused on operating systems and their history, especially UNIX. The 
 - Input and output in the shell
 - Signals and signal handling
 
-## Content
+## Repository Content
 
 > Practical Sessions with shell terminal commands and programs written in bash.
 
-1. General Commands
+1. General UNIX Commands
    - Calendar Functionality
    - Operating System and User Calls
    - Directories and Files
@@ -46,8 +46,8 @@ The course focused on operating systems and their history, especially UNIX. The 
 5. Table Evaluations
 6. System Processes
 7. Parameter Handling
-8. System Data Usage
-9. Puzzle Game
-10. Diagram Generation
+8. System Data App Usage
+9. Number Puzzle Game
+10. Terminal Diagram Generation
 11. Randomized Weather Report
 12. Phonebook Data Analysis
